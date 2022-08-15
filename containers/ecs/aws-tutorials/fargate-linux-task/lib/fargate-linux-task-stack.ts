@@ -1,16 +1,15 @@
 import * as cdk from 'aws-cdk-lib';
+import * as ecs from 'aws-cdk-lib/aws-ecs';
+import * as ec2 from 'aws-cdk-lib/aws-ec2';
 import { Construct } from 'constructs';
-// import * as sqs from 'aws-cdk-lib/aws-sqs';
 
 export class FargateLinuxTaskStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    // The code that defines your stack goes here
-
-    // example resource
-    // const queue = new sqs.Queue(this, 'FargateLinuxTaskQueue', {
-    //   visibilityTimeout: cdk.Duration.seconds(300)
-    // });
+    new ecs.Cluster(this, 'Cluster', {
+      clusterName: 'fargate-cluster',
+      vpc: ec2.Vpc.fromLookup(this, 'defaultVpc', { isDefault: true })
+    });
   }
 }
