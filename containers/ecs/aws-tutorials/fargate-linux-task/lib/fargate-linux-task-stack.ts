@@ -49,5 +49,6 @@ export class FargateLinuxTaskStack extends cdk.Stack {
       securityGroups: [ec2.SecurityGroup.fromSecurityGroupId(this, 'defaultSg', 'sg-17b0c672')]
     });
     new cdk.CfnOutput(this, 'ServiceArn', { value: fargateServive.serviceArn, description: 'Service ARN' });
+    new cdk.CfnOutput(this, 'TaskId', { value: fargateTaskDefinition.taskDefinitionArn, description: 'Task ARN' });
   }
 }
