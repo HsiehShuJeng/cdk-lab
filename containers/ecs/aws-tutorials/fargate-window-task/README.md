@@ -1,14 +1,17 @@
-# Welcome to your CDK TypeScript project
+# Welcome to your CDK TypeScript project  
+## Checkout Steps  
+1. List task definition
+    ```sh
+    aws ecs list-task-definitions --profile ${PROFILE_NAME}
+    ```
+2. List service
+    ```sh
+    aws ecs list-services --cluster fargate-windows-cluster --profile ${PROFILE_NAME}
+    ```
+3. Describe the running service
+    ```sh
+    aws ecs describe-services --cluster fargate-windows-cluster --services fargate-windows-service --profile ${PROFILE_NAME}
+    ```
 
-This is a blank project for CDK development with TypeScript.
-
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
-
-## Useful commands
-
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `cdk deploy`      deploy this stack to your default AWS account/region
-* `cdk diff`        compare deployed stack with current state
-* `cdk synth`       emits the synthesized CloudFormation template
+## What Task Do  
+![image](../images/fargate-windows-task.png)

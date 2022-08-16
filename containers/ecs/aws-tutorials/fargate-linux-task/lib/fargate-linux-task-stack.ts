@@ -2,7 +2,6 @@ import * as cdk from 'aws-cdk-lib';
 import * as ecs from 'aws-cdk-lib/aws-ecs';
 import * as ec2 from 'aws-cdk-lib/aws-ec2';
 import { Construct } from 'constructs';
-import { Vpc } from 'aws-cdk-lib/aws-ec2';
 
 export class FargateLinuxTaskStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
